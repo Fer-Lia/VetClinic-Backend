@@ -64,8 +64,6 @@ Thumbs.db
 # Project specific
 *.pem
 *.key
-alembic/versions/*.py
-!alembic/versions/__init__.py
 
 # Notas de trabajo locales (no se comparten en el repo)
 CLAUDE.md
