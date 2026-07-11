@@ -66,3 +66,8 @@ Thumbs.db
 *.key
 alembic/versions/*.py
 !alembic/versions/__init__.py
+
+# Notas de trabajo locales (no se comparten en el repo)
+CLAUDE.md
+DECISIONES.md
+ISSUES_BACKLOG.md
