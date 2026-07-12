@@ -17,6 +17,12 @@ def obtener_por_dni(db: Session, dni: str) -> Cliente | None:
     return db.get(Cliente, dni)
 
 
+def obtener_por_email(db: Session, email: str) -> Cliente | None:
+    return db.execute(
+        select(Cliente).where(Cliente.email == email)
+    ).scalar_one_or_none()
+
+
 def listar(db: Session) -> list[Cliente]:
     return list(db.execute(select(Cliente)).scalars().all())
 
