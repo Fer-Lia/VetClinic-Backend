@@ -14,3 +14,9 @@ class MascotaNoEncontrada(Exception):
     def __init__(self, id_mascota: int):
         self.id_mascota = id_mascota
         super().__init__(f"No existe una mascota con id {id_mascota}")
+
+
+class VeterinarioNoEncontrado(Exception):
+    def __init__(self, dni: str):
+        self.dni = dni
+        super().__init__(f"No existe un veterinario con dni {dni}")
