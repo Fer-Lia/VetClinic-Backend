@@ -5,6 +5,9 @@ from app.api.deps import get_db
 from app.schemas.cliente import ClienteCreate, ClienteOut, ClienteUpdate
 from app.services import cliente as cliente_service
 
+from app.schemas.mascota import MascotaOut
+from app.services import mascota as mascota_service
+
 router = APIRouter(prefix="/clientes", tags=["clientes"])
 
 
@@ -31,3 +34,8 @@ def actualizar_cliente(dni: str, cambios: ClienteUpdate, db: Session = Depends(g
 @router.delete("/{dni}", status_code=status.HTTP_204_NO_CONTENT)
 def eliminar_cliente(dni: str, db: Session = Depends(get_db)):
     cliente_service.eliminar_cliente(db, dni)
+
+
+@router.get("/{dni}/mascotas", response_model=list[MascotaOut])
+def listar_mascotas_de_cliente(dni: str, db: Session = Depends(get_db)):
+    return mascota_service.listar_mascotas_de_cliente(db, dni)
