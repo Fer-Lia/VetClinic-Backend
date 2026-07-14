@@ -1,7 +1,12 @@
 from fastapi import Request
 from fastapi.responses import JSONResponse
 
-from app.core.exceptions import ClienteNoEncontrado, EmailDuplicado, MascotaNoEncontrada
+from app.core.exceptions import (
+    ClienteNoEncontrado,
+    EmailDuplicado,
+    MascotaNoEncontrada,
+    VeterinarioNoEncontrado,
+)
 
 
 async def cliente_no_encontrado_handler(request: Request, exc: ClienteNoEncontrado) -> JSONResponse:
@@ -9,6 +14,10 @@ async def cliente_no_encontrado_handler(request: Request, exc: ClienteNoEncontra
 
 
 async def mascota_no_encontrada_handler(request: Request, exc: MascotaNoEncontrada) -> JSONResponse:
+    return JSONResponse(status_code=404, content={"detail": str(exc)})
+
+
+async def veterinario_no_encontrado_handler(request: Request, exc: VeterinarioNoEncontrado) -> JSONResponse:
     return JSONResponse(status_code=404, content={"detail": str(exc)})
 
 
