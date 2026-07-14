@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 
+from app.core.logging import configurar_logging
+
+configurar_logging()
+
 from app.api.v1.cliente import router as cliente_router
 from app.api.v1.mascota import router as mascota_router
 from app.api.v1.veterinario import router as veterinario_router
