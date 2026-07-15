@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from app.core.logging import configurar_logging
 
 configurar_logging()
@@ -21,6 +23,20 @@ from app.core.exceptions import (
 )
 
 app = FastAPI(title="VetClinic API")
+
+origenes_permitidos = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origenes_permitidos,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app.add_exception_handler(ClienteNoEncontrado, cliente_no_encontrado_handler)
 app.add_exception_handler(EmailDuplicado, email_duplicado_handler)
