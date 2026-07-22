@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class VeterinarioBase(BaseModel):
@@ -6,6 +6,7 @@ class VeterinarioBase(BaseModel):
     apellido: str
     especialidad: str
     telefono: str
+    email: EmailStr
 
 
 class VeterinarioCreate(VeterinarioBase):
@@ -17,6 +18,7 @@ class VeterinarioUpdate(BaseModel):
     apellido: str | None = None
     especialidad: str | None = None
     telefono: str | None = None
+    email: EmailStr | None = None
 
 
 class VeterinarioOut(VeterinarioBase):
