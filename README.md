@@ -30,7 +30,7 @@ API REST para la gestión de una clínica veterinaria: clientes, sus mascotas y 
 - Manejo de errores centralizado, con respuestas JSON consistentes.
 - Migraciones de base de datos versionadas con Alembic.
 - Documentación interactiva automática (Swagger) en `/docs`.
-- Tests automatizados con pytest, sobre base de datos en memoria.
+- Tests automatizados con pytest.
 
 ## 🏗 Arquitectura
 
